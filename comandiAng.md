@@ -337,3 +337,136 @@ equipment = computed(() =>
     .find((eq) => eq.id.toString() === this.id())
 );
 ```
+
+---
+
+# Implementation of Choice
+
+## Titolo
+NOME progetto
+Un'applicazione web per ..
+
+## Descrizione
+AngFitness è un'applicazione web sviluppata con Angular per fornire agli utenti la possibilità di gestire e prenotare i corsi disponibili all'interno della palestra. Nella Home , gli utenti trovano una breve introduzione alla palestra, che presenta i corsi principali offerti. Nella sezione Chi Siamo , è presente una spiegazione dettagliata della palestra, che spiega le funzionalità dei moderni macchinari presenti, ed espospone i servizi aggiuntivi. Gli utenti possono visualizzare i corsi disponibili e prenotarne uno o più di uno, a condizione che ci siano posti disponibili, semplicemente inserendo il proprio nome e cognome. Nella sezione Amministrazione , i gestori della palestra hanno la possibilità di aggiungere nuovi corsi fornendo tutte le informazioni necessarie, eliminare corsi esistenti tramite l'apposito bottone e visualizzare la lista completa degli utenti prenotati ai vari corsi.
+
+## Versione tecnologie utilizzate
+Angular CLI: 18.2.12
+Typescript: 5.6.3 Node: 22.11.0
+Package Manager: npm 10.9.0
+Json-server: 1.0.0-beta.3
+
+## Technologies Used
+
+-   Frontend: React.js with TypeScript and Vite
+    
+-   Styling: CSS3
+    
+-   Authentication: JWT (JSON Web Token) for secure access to restricted areas
+    
+
+## Booking Management
+
+-   Users can book equipment in two ways:
+    
+    -   Through an input field (up to 20 minutes)
+        
+    -   Through quick-select buttons (5, 10, 15, 20 minutes)
+        
+-   Bookings are visible:
+    
+    -   In the public area if not logged in
+        
+    -   In the private area if logged in
+        
+
+## Protection of "My Bookings" Area
+
+-   Access to the **My Bookings** page is protected by a `ProtectedRoute`
+    
+-   It checks for a valid token in `sessionStorage`
+    
+-   If no token is found, the user is redirected to the login page
+    
+
+## Registration System
+
+-   **On Submit**:
+    
+    -   Prevents submission with empty fields
+        
+    -   Rejects existing usernames
+        
+-   **On Typing**:
+    
+    -   Username must be ≥ 6 characters
+        
+    -   Password must be ≥ 6 characters
+        
+    -   Confirm password must match
+        
+
+## Login System
+
+-   Displays errors when:
+    
+    -   Fields are empty
+        
+    -   Credentials are invalid
+        
+-   On successful login:
+    
+    -   Receives and stores a token in `sessionStorage`
+        
+    -   Redirects to the home page
+        
+    -   Prevents access to login if already authenticated (redirects to logout)
+        
+
+## Logout System
+
+-   Clears the token from `sessionStorage` to log the user out
+    
+
+## Responsiveness
+
+-   Fully responsive design using Tailwind CSS
+    
+
+---
+
+## UI Design
+
+### Page Structure
+
+-   **Home Page**:  
+    Hero message and equipment list
+    
+-   **Bookings Page**:
+    
+    -   Public Bookings: Viewable by everyone
+        
+    -   My Bookings: Personal reservations (requires login)
+        
+-   **Login/Registration Page**:  
+    Authentication forms
+    
+
+### UI/UX Choices
+
+-   **Fixed Navbar**:  
+    Quick navigation to main pages
+    
+-   **Color Palette**:  
+    Orange and gray – energy and strength
+    
+-   **Fonts**:
+    
+    -   Title (`h1`): `"Michroma", serif`
+        
+    -   Body: `Arial, sans-serif`
+        
+-   **Buttons**:  
+    Large, high-contrast, with rounded corners
+    
+-   **Messages**:  
+    Clear error/success feedback for login, registration, and bookings
