@@ -1,0 +1,466 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;
+\f3\fswiss\fcharset0 Helvetica;\f4\fmodern\fcharset0 CourierNewPSMT;\f5\fnil\fcharset0 LucidaGrande;
+}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red0\green0\blue0;\red109\green109\blue109;
+\red255\green255\blue255;\red67\green192\blue160;\red202\green202\blue202;\red141\green212\blue254;\red71\green137\blue205;
+\red194\green126\blue101;\red183\green111\blue179;\red212\green213\blue154;\red67\green179\blue255;\red202\green202\blue202;
+\red203\green203\blue202;\red71\green138\blue206;\red67\green180\blue255;\red212\green213\blue153;\red255\green255\blue255;
+\red142\green214\blue255;\red203\green203\blue202;\red72\green140\blue207;\red212\green213\blue152;\red194\green125\blue100;
+\red255\green255\blue255;\red247\green249\blue251;\red255\green255\blue255;\red255\green255\blue255;\red255\green255\blue255;
+\red167\green197\blue151;\red141\green213\blue254;\red194\green125\blue100;\red183\green111\blue179;\red142\green213\blue255;
+\red203\green203\blue202;\red23\green23\blue23;\red36\green255\blue255;\red0\green0\blue0;\red246\green249\blue251;
+}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000\c5098;\cssrgb\c0\c0\c0;\cssrgb\c50251\c50251\c50189;
+\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c30610\c78876\c69022;\cssrgb\c83229\c83229\c83125;\cssrgb\c61361\c86489\c99746;\cssrgb\c33936\c61427\c84130;
+\cssrgb\c80778\c56830\c46925;\cssrgb\c77331\c52624\c75301;\cssrgb\c86261\c86245\c66529;\cssrgb\c31226\c75987\c100000;\cssrgb\c83137\c83137\c83137;
+\cssrgb\c83320\c83320\c83112;\cssrgb\c34146\c61677\c84338;\cssrgb\c31469\c76285\c100000;\cssrgb\c86247\c86215\c66392;\cssrgb\c100000\c100000\c99985\c0;
+\cssrgb\c61912\c87133\c100000;\cssrgb\c83502\c83501\c83084;\cssrgb\c34566\c62178\c84753;\cssrgb\c86216\c86153\c66114;\cssrgb\c80757\c56727\c46519;
+\cssrgb\c100000\c100000\c99985\c5098;\cssrgb\c97368\c98153\c98816;\cssrgb\c100000\c100000\c99956;\cssrgb\c100000\c100000\c100000;\cssrgb\c100000\c100000\c99971;
+\cssrgb\c71008\c80807\c65805;\cssrgb\c61545\c86704\c99884;\cssrgb\c80772\c56796\c46790;\cssrgb\c77407\c52698\c75307;\cssrgb\c61729\c86919\c100000;
+\cssrgb\c83411\c83411\c83099;\cssrgb\c11765\c11765\c11765;\cssrgb\c4983\c100000\c100000;\csgray\c0;\cssrgb\c97255\c98039\c98824;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21540\viewh11740\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs32 \cf0 \
+React\
+Npm create vite@latest\cb2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+React Router\
+npm i react-router\
+\
+Struttura di routine su w3c da mettere nel return di app.tsx\
+\
+Route protette\
+In app.tsx\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf4 \cb5 <\cf6 Route\cf7  \cf8 element\cf7 =\cf9 \{\cf4 <\cf6 ProtectedRoute\cf7  \cf4 />\cf9 \}\cf4 >\cf7 \
+          \cf4 <\cf6 Route\cf7  \cf8 path\cf7 =\cf10 "/mybookings"\cf7  \cf8 element\cf7 =\cf9 \{\cf4 <\cf6 MyBookings\cf7  \cf4 />\cf9 \}\cf4 />\cf7 \
+\cf4 </\cf6 Route\cf4 >\cf7 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf6 ProtectedRoute.tsx:
+\f0\fs32 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf11 import\cf7  \{ \cf8 Navigate\cf7 , \cf8 Outlet\cf7  \} \cf11 from\cf7  \cf10 "react-router"\cf7 ;\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 const\cf7  \cf12 ProtectedRoute\cf7  = () \cf9 =>\cf7  \{\
+    \cf9 const\cf7  \cf13 token\cf7  = \cf8 sessionStorage\cf7 .\cf12 getItem\cf7 (\cf10 "token"\cf7 );\
+\
+    \cf11 return\cf7  \cf13 token\cf7  ? \cf4 <\cf6 Outlet\cf7  \cf4 />\cf7  : \cf4 <\cf6 Navigate\cf7  \cf8 to\cf7 =\cf10 "/login"\cf7  \cf8 replace\cf4 />\cf7 \
+\};\
+\
+\pard\pardeftab720\partightenfactor0
+\cf11 export\cf7  \cf11 default\cf7  \cf12 ProtectedRoute\cf7 ;\cf14 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs32 \cf0 \cb2 \
+\
+\
+Per navigare tra pagine ->  \
+\pard\pardeftab720\partightenfactor0
+\cf15 \cb5     \cf16 const\cf15  \cf17 navigate\cf15  = \cf18 useNavigate\cf15 ();\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb19 onClick=\{() => \{ navigate(`/login`) \}\}\cf14 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \cb1 \kerning1\expnd0\expndtw0 Tailwind\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb2 \expnd0\expndtw0\kerning0
+npm install tailwindcss @tailwindcss/vite\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb1 vite.config.ts\cb2 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb25 import \{ defineConfig \} from 'vite'\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb1 import tailwindcss from '@tailwindcss/vite\'92  \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb25 \
+export default defineConfig(\{\
+  plugins: [\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb1     tailwindcss(),\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb25   ],\
+\})\
+\
+\
+Index.css \
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf3 \cb5 @import "tailwindcss";\
+\cb28 \
+\cb5 Estensioni\
+Prettier \
+Material icon Theme\
+Tailwind intellisense \
+Tailwind docs\
+Thunder Client\
+Path intellisense\
+Javascript auto backtick\
+es7+ react/redux/react-nativesnippets\
+\
+Struttura progetto \
+Oltre a quella data da scaffold aggiungere dentro src\
+/components\
+/hook\
+/routes \
+/service\
+\
+Esempio hook di una get\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf11 import\cf7  \{ \cf8 useEffect\cf7 , \cf8 useState\cf7  \} \cf11 from\cf7  \cf10 "react"\cf7 ;\
+\cf11 import\cf7  \{ \cf8 trainingSessionApi\cf7  \} \cf11 from\cf7  \cf10 "../service/trainingSessionGetApi"\cf7 ;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 const\cf7  \cf12 useGetTrainingSession\cf7  = () \cf9 =>\cf7  \{\
+  \cf9 const\cf7  [\cf13 trainingSession\cf7 , \cf12 setTrainingSession\cf7 ] = \cf12 useState\cf7 <\cf6 TrainingSession\cf7 []>();\
+\
+  \cf12 useEffect\cf7 (() \cf9 =>\cf7  \{\
+    \cf9 const\cf7  \cf12 fetchTrainingSession\cf7  = \cf9 async\cf7  () \cf9 =>\cf7  \{\
+      \cf11 try\cf7  \{\
+        \cf9 const\cf7  \cf13 equipmentData\cf7  = \cf11 await\cf7  \cf12 trainingSessionApi\cf7 ();\
+        \cf12 setTrainingSession\cf7 (\cf13 equipmentData\cf7 );\
+      \} \cf11 catch\cf7  (\cf8 err\cf7 ) \{\
+        \cf8 console\cf7 .\cf12 log\cf7 (\cf8 err\cf7 );\
+      \}\
+    \};\
+\
+    \cf12 fetchTrainingSession\cf7 ();\
+  \}, []);\
+\
+  \cf8 console\cf7 .\cf12 log\cf7 (\cf13 trainingSession\cf7 );\
+\
+  \cf11 return\cf7  \cf13 trainingSession\cf7 ;\
+\};\
+\
+\pard\pardeftab720\partightenfactor0
+\cf11 export\cf7  \cf11 default\cf7  \cf12 useGetTrainingSession\cf7 ;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb19 Esempio di hook di una POST\
+\pard\pardeftab720\partightenfactor0
+\cf11 \cb5 import\cf7  \{ \cf8 useState\cf7  \} \cf11 from\cf7  \cf10 "react"\cf7 ;\
+\cf11 import\cf7  \{ \cf8 trainingSessionPostApi\cf7  \} \cf11 from\cf7  \cf10 "../service/trainingSessionPostApi"\cf7 ;\
+\
+\pard\pardeftab720\partightenfactor0
+\cf9 const\cf7  \cf12 useBookingEquipment\cf7  = (\cf8 id\cf7 : \cf6 number\cf7 ) \cf9 =>\cf7  \{\
+  \cf9 const\cf7  [\cf13 duration\cf7 , \cf12 setDuration\cf7 ] = \cf12 useState\cf7 (\cf30 0\cf7 );\
+  \cf9 const\cf7  [\cf13 error\cf7 , \cf12 setError\cf7 ] = \cf12 useState\cf7 <\cf6 string\cf7  | \cf6 undefined\cf7 >(\cf10 ""\cf7 );\
+\
+  \cf9 const\cf7  \cf12 handleDuration\cf7  = (\cf8 time\cf7 : \cf6 number\cf7 ) \cf9 =>\cf7  \{\
+    \cf8 console\cf7 .\cf12 log\cf7 (\cf8 time\cf7 );\
+    \cf12 setDuration\cf7 (\cf8 time\cf7 );\
+  \};\
+\
+  \cf9 const\cf7  \cf12 submitPrenotation\cf7  = \cf9 async\cf7  (\cf8 e\cf7 : \cf6 React\cf7 .\cf6 FormEvent\cf7 <\cf6 HTMLFormElement\cf7 >) \cf9 =>\cf7  \{\
+    \cf8 console\cf7 .\cf12 log\cf7 (\cf8 id\cf7 , \cf13 duration\cf7 );\
+    \cf8 e\cf7 .\cf12 preventDefault\cf7 ();\
+    \cf8 console\cf7 .\cf12 log\cf7 (\cf8 id\cf7 , \cf13 duration\cf7 );\
+    \cf11 try\cf7  \{\
+      \cf9 const\cf7  \cf13 res\cf7  = \cf11 await\cf7  \cf12 trainingSessionPostApi\cf7 (\cf13 duration\cf7 , \cf8 id\cf7 );\
+      \cf8 console\cf7 .\cf12 log\cf7 (\cf13 res\cf7 );\
+      \cf12 setError\cf7 (\cf13 res\cf7 );\
+    \} \cf11 catch\cf7  (\cf8 err\cf7 ) \{\
+      \cf8 console\cf7 .\cf12 log\cf7 (\cf8 err\cf7 );\
+    \}\
+  \};\
+\
+  \cf11 return\cf7  \{\cf8 error\cf7 , \cf8 duration\cf7 , \cf12 handleDuration\cf7 , \cf12 submitPrenotation\cf7  \};\
+\};\
+\
+\pard\pardeftab720\partightenfactor0
+\cf11 export\cf7  \cf11 default\cf7  \cf12 useBookingEquipment\cf7 ;\cf14 \cb1 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs32 \cf3 \cb5 \
+\
+Chiamate api \
+GET con token:\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf15   \cf16 const\cf15  \cf17 token\cf15  = \cf31 sessionStorage\cf15 .\cf18 getItem\cf15 (\cf32 'token'\cf15 );\
+    \cf16 let\cf15  \cf31 header\cf15 ;\
+    \cf33 if\cf15  (\cf17 token\cf15  && \cf34 auth\cf35 ) \{\cf15 \
+        \cf31 header\cf15  = \{\
+            \cf32 'Content-Type'\cf31 :\cf15  \cf32 'application/json'\cf15 ,\
+            \cf32 'Authorization'\cf31 :\cf15  \cf32 `Bearer \cf16 $\{\cf17 token\cf16 \}\cf32 `\cf15 ,\
+        \};\
+    \} \cf33 else\cf15  \{\
+        \cf31 header\cf15  = \{\
+            \cf32 'Content-Type'\cf31 :\cf15  \cf32 'application/json'\cf15 ,\
+        \};\
+    \}\
+\
+\
+    \cf16 const\cf15  \cf17 res\cf15  = \cf33 await\cf15  \cf18 fetch\cf15 (\cf32 'https://d3660g9kardf5b.cloudfront.net/api/equipment-bookings'\cf15 , \{\
+        \cf31 method:\cf15  \cf32 'GET'\cf15 ,\
+        \cf31 headers:\cf15  \cf31 header\cf15 ,\
+\
+    \})\
+    \cf16 const\cf15  \cf17 data\cf15  = \cf33 await\cf15  \cf17 res\cf15 .\cf18 json\cf15 ();\
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb19 GET:\
+\cf11 \cb5 export\cf7  \cf9 const\cf7  \cf12 equipmentApi\cf7  = \cf9 async\cf7  () \cf9 =>\cf7  \{\
+    \cf9 const\cf7  \cf13 res\cf7  = \cf11 await\cf7  \cf12 fetch\cf7 (\cf10 'https://d3660g9kardf5b.cloudfront.net/api/equipment'\cf7 )\
+    \cf9 const\cf7  \cf13 data\cf7  = \cf11 await\cf7  \cf13 res\cf7 .\cf12 json\cf7 ();\
+    \cf11 return\cf7  \cf13 data\cf7 ;\
+\}\
+\
+\cf3 \cb19 POST:\
+\cf11 \cb5 export\cf7  \cf9 const\cf7  \cf12 registrationApi\cf7  = \cf9 async\cf7  (\cf8 username\cf7 : \cf6 string\cf7 , \cf8 password\cf7 : \cf6 string\cf7 ) \cf9 =>\cf7  \{\
+\
+    \cf9 const\cf7  \cf13 res\cf7  = \cf11 await\cf7  \cf12 fetch\cf7 (\cf10 `https://d3660g9kardf5b.cloudfront.net/api/register`\cf7 ,\
+        \{\
+            \cf8 method:\cf7  \cf10 'POST'\cf7 ,\
+            \cf8 headers:\cf7  \{\
+                \cf10 'Content-Type'\cf8 :\cf7  \cf10 'application/json'\cf7 \
+            \},\
+            \cf8 body:\cf7  \cf8 JSON\cf7 .\cf12 stringify\cf7 (\{ \cf8 username:\cf7  \cf8 username\cf7 , \cf8 password:\cf7  \cf8 password\cf7  \})\
+\
+        \});\
+        \
+    \cf11 return\cf7  \cf13 res\cf7 ;\
+\
+\}\cf14 \cb36 \
+\
+\cf3 \cb19 Tipizzazione eventi:\
+\
+\cf8 \cb5 onChange -> \cf6 React\cf7 .\cf6 ChangeEvent\cf7 <\cf6 HTMLInputElement\cf7 >\
+OnSubmit -> \cf6 React\cf7 .\cf6 FormEvent\cf7 <\cf6 HTMLFormElement\cf7 >\
+OnClick -> \cf37 \cb19 React.MouseEvent<HTMLButtonElement>\cf7 \cb5 \
+\pard\pardeftab720\partightenfactor0
+\cf14 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb19 Interfacce.d.ts\
+File per le interface\
+\
+Strutture UI gi\'e0 fatte:\
+\
+Signin and registration: https://tailwindcss.com/plus/ui-blocks/application-ui/forms/sign-in-forms\
+Navbar: https://medium.com/@ryaddev/build-responsive-navbar-with-tailwind-css-and-react-icons-3b13a272dec4\
+Card: https://v1.tailwindcss.com/components/cards\
+Modal: https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs\
+\cf14 \cb36 \
+\pard\pardeftab720\partightenfactor0
+\cf14 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf3 IMPLEMENTATION OF CHOICE:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\fs36 \cf38 \kerning1\expnd0\expndtw0 Implementation Choices of "Iron Temple"\
+
+\fs24 1. Implementation Choices\
+1.1 Technologies Used\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Frontend: React.js with TypeScript and Vite\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Styling: CSS3\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Authentication: JWT (JSON Web Token) for secure access to restricted areas\
+1.2 Booking Management\
+The booking system includes the following features\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 The user can select the equipment in two ways:\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 through an input field for greater freedom but with a maximum limit of up to 20\
+minutes\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 through four buttons with times of 5, 10, 15 and 20 minutes for easier and faster\
+interaction.\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 After renting you can see your prenotation\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 in the public booking area if you are not logged\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 in the private area if you are logged\
+1.3 Protection of 'my bookings area'\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 A ProtectedRoute restricts access to the "My Bookings" area that checks if a token\
+exist in the session storage.\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 If there is not a token the user is not authenticated, and he is automatically redirected\
+to the login page.\
+1.4 Registration system\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 The registration system includes different checks for various errors:\
+On Submit\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 If the user tries to submit a registration without filling in the fields.\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 If the user enters valid credentials that are already in the database.\
+On Typing\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 If the user enters a username with fewer than 6 characters.\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 If the user enters a password with fewer than 6 characters.
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 If the user enters a confirm password that does not match the password.\
+1.4 Login system\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 The login system has a different controls for different errors:\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 If the user tries to send a login without compile the field\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 If the user inserts invalid credentials\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 After successful login, the API returns a token, which is then stored in session storage,\
+and the user is redirected to the home page.\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 After logging in, if a user tries to access the login page, they will be redirected to the\
+logout page.\
+1.4 Logout system\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 The logout system logs out a user by deleting the authentication token from the\
+session storage.\
+1.5 Responsiveness\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 The site is fully responsive.\
+2. UI Design\
+2.1 Page Structure\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Home Page: A hero section with a motivational message and a list of available\
+equipment.\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Bookings Page:\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 My Bookings: Shows personal bookings (accessible only after login).\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 Public Bookings: Shows all gym bookings, visible to everyone.\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Login/Registration Page: Allows users to log in or create a new account.\
+2.2 UI/UX Choices\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Fixed Navbar: Provides quick access to the main pages (Home, Bookings, Login).\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Colors and Style:\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 Color Palette: Orange and gray to convey energy and strength.\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 Font:\
+
+\f5\fs19\fsmilli9960 \uc0\u9642 
+\f0  
+\f3\fs24 Title (H1): font-family: "Michroma", serif;\
+
+\f5\fs19\fsmilli9960 \uc0\u9642 
+\f0  
+\f3\fs24 Body text: `font-family: Arial, sans-serif;
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Button Design:\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 Large, high-contrast buttons to improve usability.\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 Rounded corners for a modern look.\
+
+\fs19\fsmilli9960 \'95
+\f0  
+\f3\fs24 Error & Success Messages:\
+
+\f4\fs19\fsmilli9960 o
+\f0  
+\f3\fs24 Clear error messages for login, registration, and booking issues.
+\f0\fs32 \cf3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+\cf14 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf3 \cb5 \
+\cb28 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf28 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf39 \cb2 \
+}
