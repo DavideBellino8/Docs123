@@ -156,6 +156,37 @@ const useGetTrainingSession = () => {
 
 export default useGetTrainingSession;
 ```
+### GET Hook with params
+
+```tsx
+import { useEffect, useState } from "react";
+import characterDetailApi from "../services/characterDetailApi";
+import { useParams } from "react-router";
+
+const useCharacterDetail = () => {
+  const [character, setCharacter] = useState<Character>();
+
+  const { id } = useParams();
+
+  const fetchDetailData = async (id:string|undefined) => {
+    try {
+      const res = await characterDetailApi(id);
+      console.log(res);
+      setCharacter(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDetailData(id);
+  }, [id]);
+
+  return character;
+};
+
+export default useCharacterDetail;
+```
 
 ### POST Hook
 
@@ -239,6 +270,37 @@ export const registrationApi = async (username: string, password: string) => {
 
   return res;
 };
+```
+
+---
+
+## Map
+
+```tsx
+<div className="flex flex-wrap gap-4">
+  {characters?.results.map((char) => {
+    return <CharacterCard key={char.id} char={char}></CharacterCard>;
+  })}
+</div>
+```
+
+## Find
+
+```tsx
+{
+  booking.map((book, index) => {
+    const match = equipment.find((equip) => equip.id == book.equipment_id);
+
+    return (
+      <BookingCard
+        key={index}
+        formatDate={formatDate}
+        match={match}
+        book={book}
+      />
+    );
+  });
+}
 ```
 
 ---
